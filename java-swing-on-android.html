@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Run Java Swing Apps on Android - Jre4Android</title><meta name="description" content="Learn how to run Java Swing GUI applications on Android with Jre4Android, including virtual mouse, zoom, move, and keyboard controls."/><style>
+:root{--primary:#14b8a6;--primary-dark:#0f766e;--bg:#f7fbfb;--card:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;padding:56px 20px;text-align:center}
+header h1{margin:0 auto 16px;max-width:980px;font-size:42px;line-height:1.2}header p{margin:0 auto;max-width:850px;font-size:18px;opacity:.96}
+nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}.nav-inner{max-width:980px;margin:0 auto;padding:12px 18px;display:flex;gap:12px;flex-wrap:wrap}
+.nav-inner a{color:var(--primary-dark);text-decoration:none;font-weight:700;padding:6px 10px;border-radius:999px;transition:background .18s ease,color .18s ease,box-shadow .18s ease}.nav-inner a:hover{background:#ecfdf5}.nav-inner a.active{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(20,184,166,.28)}
+main{max-width:980px;margin:0 auto;padding:32px 18px 64px}section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:0 8px 24px rgba(15,118,110,.06)}
+h2{margin-top:0;font-size:28px;color:var(--primary-dark)}h3{margin-top:24px;font-size:21px;color:#111827}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:6px 0}
+.hero-actions{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.button{display:inline-block;padding:13px 22px;border-radius:999px;background:#fff;color:var(--primary-dark);text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.button.secondary{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}
+.feature-grid,.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.feature-grid{padding-left:0;list-style:none}.feature-grid li,.link-card{background:#ecfdf5;border:1px solid #ccfbf1;border-radius:14px;padding:12px 14px;margin:0;font-weight:600}
+.link-card{display:block;text-decoration:none;color:var(--text);font-weight:400}.link-card strong{display:block;color:var(--primary-dark);font-size:18px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin-top:14px}th,td{border:1px solid var(--border);padding:12px;text-align:left}th{background:#ecfdf5;color:var(--primary-dark)}
+code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:Consolas,Monaco,monospace}.note{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:14px 16px}
+.download-card{text-align:center;background:linear-gradient(135deg,#ecfdf5,#fff)}.download-button{display:inline-block;margin-top:12px;padding:14px 26px;border-radius:12px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700}
+footer{text-align:center;padding:28px 18px;color:var(--muted);border-top:1px solid var(--border);background:#fff}@media(max-width:680px){header h1{font-size:32px}header p{font-size:16px}section{padding:22px}.feature-grid,.link-grid{grid-template-columns:1fr}h2{font-size:24px}}
+</style></head><body>
+<header><h1>Run Java Swing Apps on Android</h1><p>Launch desktop-style Java Swing GUI apps on Android and interact with them using touch controls.</p><div class="hero-actions"><a class="button" href="https://play.google.com/store/apps/details?id=com.coobbi.jre">Download Jre4Android</a><a class="button secondary" href="https://play.google.com/store/apps/details?id=com.coobbi.jre.pro">View Pro Version</a></div></header>
+<nav><div class="nav-inner">
+<a href="index.html">Overview</a>
+<a href="run-jar-files-on-android.html">Run JAR</a>
+<a href="java-swing-on-android.html">Swing</a>
+<a href="run-class-files-on-android.html">CLASS</a>
+<a href="j2me-emulator-android.html">J2ME</a>
+<a href="java-emulator-android.html">Java Emulator</a>
+</div></nav><main>
+<section><h2>Java Swing on Android</h2><p>Java Swing is a desktop GUI toolkit. Many classic Java applications use Swing for windows, buttons, menus, dialogs, and text fields. Jre4Android can run many Swing JAR applications directly on Android.</p></section>
+<section><h2>How to Run a Swing JAR</h2><ol><li>Install and open Jre4Android.</li><li>Tap <strong>Open JAR File</strong>.</li><li>Select a Java Swing <code>.jar</code> file.</li><li>Run the file.</li><li>Use the on-screen controls to interact with the GUI.</li></ol></section>
+<section><h2>Swing Controls</h2><ul><li><strong>Virtual mouse:</strong> move the pointer and tap to click.</li><li><strong>Zoom:</strong> zoom in or out for small desktop UI elements.</li><li><strong>Move window:</strong> adjust the visible Swing area on the screen.</li><li><strong>Keyboard input:</strong> send Enter, Tab, arrow keys, and text input when needed.</li></ul></section>
+<section><h2>Compatibility Notes</h2><p>Some Java desktop apps may require native desktop APIs, external libraries, hardware acceleration, or file paths that do not work the same way on Android.</p><div class="note">A Swing app running successfully on desktop Java does not always guarantee perfect behavior on Android. Test your app and adjust settings when needed.</div></section>
+<section><h2>Best Use Cases</h2><ul><li>Small Java GUI tools</li><li>Educational Java apps</li><li>Classic Swing utilities</li><li>Java demos and experiments</li></ul></section>
+<section class="download-card"><h2>Download Jre4Android</h2><p>Run Java Swing GUI apps on Android.</p><a class="download-button" href="https://play.google.com/store/apps/details?id=com.coobbi.jre">Download on Google Play</a></section>
+</main><footer><p>© Coobbi. Jre4Android is an independent Android Java runtime tool.</p></footer>
+<script>
+  (function () {
+    var current = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-inner a').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === current) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+</script>
+
+</body></html>
