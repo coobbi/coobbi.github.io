@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Run JAR Files on Android - Jre4Android</title><meta name="description" content="Learn how to run Java JAR files on Android with Jre4Android. Open JAR files, run command-line Java programs, and fix common Main-Class problems."/><style>
+:root{--primary:#14b8a6;--primary-dark:#0f766e;--bg:#f7fbfb;--card:#fff;--text:#1f2937;--muted:#6b7280;--border:#e5e7eb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+header{background:linear-gradient(135deg,#0f766e,#14b8a6);color:#fff;padding:56px 20px;text-align:center}
+header h1{margin:0 auto 16px;max-width:980px;font-size:42px;line-height:1.2}header p{margin:0 auto;max-width:850px;font-size:18px;opacity:.96}
+nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}.nav-inner{max-width:980px;margin:0 auto;padding:12px 18px;display:flex;gap:12px;flex-wrap:wrap}
+.nav-inner a{color:var(--primary-dark);text-decoration:none;font-weight:700;padding:6px 10px;border-radius:999px;transition:background .18s ease,color .18s ease,box-shadow .18s ease}.nav-inner a:hover{background:#ecfdf5}.nav-inner a.active{background:var(--primary);color:#fff;box-shadow:0 4px 12px rgba(20,184,166,.28)}
+main{max-width:980px;margin:0 auto;padding:32px 18px 64px}section{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;margin-bottom:24px;box-shadow:0 8px 24px rgba(15,118,110,.06)}
+h2{margin-top:0;font-size:28px;color:var(--primary-dark)}h3{margin-top:24px;font-size:21px;color:#111827}p{margin:12px 0}ul,ol{padding-left:24px}li{margin:6px 0}
+.hero-actions{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.button{display:inline-block;padding:13px 22px;border-radius:999px;background:#fff;color:var(--primary-dark);text-decoration:none;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.button.secondary{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.45);box-shadow:none}
+.feature-grid,.link-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.feature-grid{padding-left:0;list-style:none}.feature-grid li,.link-card{background:#ecfdf5;border:1px solid #ccfbf1;border-radius:14px;padding:12px 14px;margin:0;font-weight:600}
+.link-card{display:block;text-decoration:none;color:var(--text);font-weight:400}.link-card strong{display:block;color:var(--primary-dark);font-size:18px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;margin-top:14px}th,td{border:1px solid var(--border);padding:12px;text-align:left}th{background:#ecfdf5;color:var(--primary-dark)}
+code{background:#f3f4f6;padding:2px 6px;border-radius:6px;font-family:Consolas,Monaco,monospace}.note{background:#fffbeb;border:1px solid #fde68a;border-radius:14px;padding:14px 16px}
+.download-card{text-align:center;background:linear-gradient(135deg,#ecfdf5,#fff)}.download-button{display:inline-block;margin-top:12px;padding:14px 26px;border-radius:12px;background:var(--primary);color:#fff;text-decoration:none;font-weight:700}
+footer{text-align:center;padding:28px 18px;color:var(--muted);border-top:1px solid var(--border);background:#fff}@media(max-width:680px){header h1{font-size:32px}header p{font-size:16px}section{padding:22px}.feature-grid,.link-grid{grid-template-columns:1fr}h2{font-size:24px}}
+</style></head><body>
+<header><h1>How to Run JAR Files on Android</h1><p>Use Jre4Android to open and run Java JAR files directly on your Android device.</p><div class="hero-actions"><a class="button" href="https://play.google.com/store/apps/details?id=com.coobbi.jre">Download Jre4Android</a><a class="button secondary" href="https://play.google.com/store/apps/details?id=com.coobbi.jre.pro">View Pro Version</a></div></header>
+<nav><div class="nav-inner">
+<a href="index.html">Overview</a>
+<a href="run-jar-files-on-android.html">Run JAR</a>
+<a href="java-swing-on-android.html">Swing</a>
+<a href="run-class-files-on-android.html">CLASS</a>
+<a href="j2me-emulator-android.html">J2ME</a>
+<a href="java-emulator-android.html">Java Emulator</a>
+</div></nav><main>
+<section><h2>Can Android Run JAR Files?</h2><p>Android cannot normally run desktop Java JAR files directly. Jre4Android provides a Java runtime environment on Android, so you can launch compatible JAR files from your phone.</p></section>
+<section><h2>Steps to Run a JAR File</h2><ol><li>Install Jre4Android from Google Play.</li><li>Open Jre4Android.</li><li>Tap <strong>Open JAR File</strong>.</li><li>Select the <code>.jar</code> file from your device.</li><li>Tap <strong>Run</strong>.</li><li>View the output in terminal mode or in a GUI window if it is a Swing app.</li></ol></section>
+<section><h2>What Kind of JAR Files Can I Run?</h2><ul><li>Simple command-line Java tools</li><li>Java learning examples</li><li>Many Java Swing GUI applications</li><li>Some server-style Java applications, depending on requirements</li></ul></section>
+<section><h2>Common Error: No Main-Class</h2><p>Some JAR files do not include a <code>Main-Class</code> entry in <code>META-INF/MANIFEST.MF</code>. Without this entry, the runtime may not know which class to launch.</p><p>You can use Jar File Opener to inspect the manifest and check whether the JAR contains a valid Main-Class.</p><p><a href="https://play.google.com/store/apps/details?id=com.coobbi.jarfileopener">Download Jar File Opener on Google Play</a></p></section>
+<section><h2>Tips</h2><ul><li>Check the required Java version before running a JAR.</li><li>Use the Pro version if you need custom command-line arguments.</li><li>Some desktop Java apps may require libraries or APIs that are not available on Android.</li></ul></section>
+<section class="download-card"><h2>Download Jre4Android</h2><p>Run Java JAR files on your Android phone or tablet.</p><a class="download-button" href="https://play.google.com/store/apps/details?id=com.coobbi.jre">Download on Google Play</a></section>
+</main><footer><p>© Coobbi. Jre4Android is an independent Android Java runtime tool.</p></footer>
+<script>
+  (function () {
+    var current = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-inner a').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (href === current) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+  })();
+</script>
+
+</body></html>
