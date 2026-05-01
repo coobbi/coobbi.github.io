@@ -1,142 +1,373 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  <script src="https://use.fontawesome.com/baff6f55f5.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Coobbi</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <title>Run Java JAR Files on Android with Jre4Android</title>
+  <meta name="description" content="Jre4Android is a Java runtime tool for Android that helps you run JAR files, CLASS files, Java command-line programs, Swing GUI apps, and J2ME apps directly on your Android device." />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-998GSXQYWM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-998GSXQYWM');
-    </script>
+  <style>
+    :root {
+      --primary: #14b8a6;
+      --primary-dark: #0f766e;
+      --bg: #f7fbfb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --code-bg: #f3f4f6;
+    }
 
-    <!-- For all browsers -->
-    <link rel="stylesheet" href="assets/css/academicons.min.css"/>
-    <link rel="stylesheet" href="assets/css/academicons.css"/>
+    * {
+      box-sizing: border-box;
+    }
 
-    <style>
-      button.accordion {
-      font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      cursor: pointer;
-      padding: 0px;
-      border: none;
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f766e, #14b8a6);
+      color: white;
+      padding: 56px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 auto 16px;
+      max-width: 960px;
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    header p {
+      margin: 0 auto;
+      max-width: 820px;
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 24px rgba(15, 118, 110, 0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: var(--primary-dark);
+    }
+
+    h3 {
+      margin-top: 24px;
+      font-size: 21px;
+      color: #111827;
+    }
+
+    p {
+      margin: 12px 0;
+    }
+
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: white;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.18);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: none;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .feature-grid li {
+      background: #ecfdf5;
+      border: 1px solid #ccfbf1;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin: 0;
+      font-weight: 600;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      padding: 12px;
       text-align: left;
-      outline: none;
-      font-size: 100%;
-      transition: 0.3s;
-      background-color: #f8f8f8;
-      }
-      button.accordion.active, button.accordion:hover {
-      background-color: #f8f8f8;
-      }
-      button.accordion:after {
-      content: " [+] ";
-      font-size: 90%;
-      color:#777;
-      float: left;
-      margin-left: 1px;
+    }
+
+    th {
+      background: #ecfdf5;
+      color: var(--primary-dark);
+    }
+
+    code {
+      background: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.95em;
+    }
+
+    .download-card {
+      text-align: center;
+      background: linear-gradient(135deg, #ecfdf5, #ffffff);
+    }
+
+    .download-card .download-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 26px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    @media (max-width: 680px) {
+      header h1 {
+        font-size: 32px;
       }
 
-      button.accordion.active:after {
-      content: " [\2212] ";
+      header p {
+        font-size: 16px;
       }
-      div.panel {
-      padding: 0 20px;
-      margin-top: 5px;
-      display: none;
-      background-color: white;
-      font-size: 100%;
-      }
-      div.panel.show {
-      display: block !important;
-      }
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Jre4Android</h1>
-        <p>Jre4Android<br>Java runtime environment for android</p>
-        <p> 💼 About the Developer</p>
-<p>
-Hi! I'm the developer of Jre4Android.  </p>
-<p>Currently, I am open to part-time / freelance opportunities in Android, Java, and Rust development.  </p>
-<p>
-📧 Contact: imzine.com@gmail.com 
-          </p>
-<!--         <p>Research Affiliate<br><a href="http://legacy.iza.org/en/webcontent/personnel/photos/index_html?key=24155">Institute for the Study of Labor (IZA)</a></p>
-        <p>Fellow<br><a href="https://glabor.org/user/tyleransom/">Global Labor Organization (GLO)</a></p>
-    <h3><a href="https://coobbi.github.io/">Home</a></h3>
-        <h3><a href="https://coobbi.github.io/research.html">Research</a></h3>
-    <h3><a href="https://coobbi.github.io/research/CV.pdf">CV</a></h3>  
-        <h3><a href="https://coobbi.github.io/code.html">Code</a></h3> 
-        <h3><a href="https://coobbi.github.io/teaching.html">Teaching</a></h3> 
-        <h3><a href="https://coobbi.github.io/personal.html">Personal</a></h3>
-    <b>Social</b><br>
-        <div class="social-row">
-          <a href="mailto:ransom@ou.edu" class="author-social" target="_blank"><i class="fa fa-fw fa-envelope-square"></i> Email</a><br>
-          <a href="https://scholar.google.com/citations?user=eohlTTcAAAAJ&hl=en" target="_blank"><i class="ai ai-fw ai-google-scholar-square"></i> Scholar</a><br>
-          <a href="https://orcid.org/0000-0002-6910-0363"><i class="ai ai-fw ai-orcid-square"></i> ORCID</a><br>
-          <a href="http://ideas.repec.org/f/pra541.html"><i class="ai ai-fw ai-ideas-repec-square"></i> RePEc</a><br>
-          <a href="http://github.com/coobbi"><i class="fa fa-fw fa-github-square"></i> GitHub</a><br>
-          <a href="http://twitter.com/coobbi" class="author-social" target="_blank"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a><br>
-          <a href="http://linkedin.com/in/coobbi" class="author-social" target="_blank"><i class="fa fa-fw fa-linkedin-square"></i> LinkedIn</a><br>
-          <br>
-        </div>
-        <br>
 
-    <p><b>Contact:</b><br>Department of Economics<br>University of Oklahoma<br>322 CCD1, 308 Cate Center Drive<br>Norman, OK 73072</p> -->
-<!--     <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p> -->
-      </header>
-      <section>
-      <!--<img src="IMG_3475-Edit smallest.jpg" height="250" width="250" alt="Tyler Ransom"></h3> -->
-      <p>Google Play: <a href="https://play.google.com/store/apps/details?id=com.coobbi.jre">Jre4Android</a></p>
-      <p>The Java Runtime Environment, or jre for short, is a java runtime environment  for android (Jre4Android) used to execute Java programs. It can run jar and class files.</p>
-<p>This app can open jar and run jar file (Java version is 17)</p>
-<p>The effect of this app is the same as the command below: </p>
-<p>java -jar xxx.jar</p>
-<p>
-This app can also open class and run .class file, the effect is same as the command below: 
-  </p>
-<p>java Hello</p>
-<p>Hello is the Hello.class</p>
-<p>
-In short this app allows you to easily run Java applications packaged into JAR files. Simply select the JAR file you want to run and it will be executed just like typing "java -jar xxx.jar" in the command line. Additionally, you can also run individual Java classes by selecting the corresponding .class file. This app supports Java version 17.
-</p>
-        <p>
-If you have a Spring Boot application that has been packaged into a JAR file, this app can also run it for you with ease. Whether you're a developer or just someone who needs to run Java applications, this app makes it simple and convenient for you to get started. Give it a try today!
-</p>
-(Not support minecraft game jar)
-<p>
-If you have any questions or suggestions, you can visit the community address below:
-</p>
-<a href="https://github.com/coobbi/Jre4android/discussions">discussions</a>
-        <p>
-          ☕ Support the Developer
-        </p>
-         <p> If you like this project, consider <a href="https://paypal.me/wpapper">supporting me on PayPal</a> to help keep it going 🙌
+      section {
+        padding: 22px;
+      }
 
-        </p>
-      </section>
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Run Java JAR Files on Android with Jre4Android</h1>
+    <p>
+      Jre4Android is a Java runtime tool for Android that helps you run JAR files,
+      CLASS files, Java command-line programs, Swing GUI apps, and J2ME apps
+      directly on your Android device.
+    </p>
+
+    <div class="hero-actions">
+      <a class="button" href="#download">Download Jre4Android</a>
+      <a class="button secondary" href="#how-to-run-jar">How to Run a JAR</a>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Jre4Android?</h2>
+      <p>
+        Jre4Android lets Android users run Java applications without a desktop computer.
+        You can open a JAR file, run command-line Java programs, launch Java Swing GUI apps,
+        and test simple Java tools on your phone.
+      </p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul class="feature-grid">
+        <li>Run JAR files on Android</li>
+        <li>Run .class files</li>
+        <li>Java command-line mode</li>
+        <li>Java Swing GUI support</li>
+        <li>J2ME app support</li>
+        <li>Custom arguments support in Pro version</li>
+        <li>Java 17 support in free version</li>
+        <li>Java 25 support in Pro version</li>
+      </ul>
+    </section>
+
+    <section id="how-to-run-jar">
+      <h2>How to Run a JAR File on Android</h2>
+      <ol>
+        <li>Download and install Jre4Android from Google Play.</li>
+        <li>Open the app.</li>
+        <li>Tap <strong>Open JAR File</strong>.</li>
+        <li>Select your <code>.jar</code> file.</li>
+        <li>Tap <strong>Run</strong>.</li>
+        <li>View the output in the terminal or GUI window.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>How to Run a CLASS File</h2>
+      <ol>
+        <li>Open Jre4Android.</li>
+        <li>Select CLASS mode.</li>
+        <li>Choose your compiled <code>.class</code> file.</li>
+        <li>Run the class file on your Android device.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>How to Run Java Swing Apps on Android</h2>
+      <p>
+        Jre4Android supports running many Java Swing GUI applications on Android.
+        You can launch desktop-style Java GUI apps and interact with them using
+        touch controls, virtual mouse, zoom, and keyboard input.
+      </p>
+    </section>
+
+    <section>
+      <h2>How to Run J2ME Apps</h2>
+      <p>
+        Jre4Android also supports J2ME apps by integrating J2ME-related runtime support.
+        This is useful for running classic Java mobile apps and games.
+      </p>
+    </section>
+
+    <section>
+      <h2>Free vs Pro Version</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free</th>
+            <th>Pro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Run JAR files</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Run CLASS files</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Java 17 runtime</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Java 25 runtime</td>
+            <td>Limited / unlock</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Custom args</td>
+            <td>Limited</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Ads</td>
+            <td>Yes</td>
+            <td>No</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Common Problems</h2>
+
+      <h3>The JAR file does not start</h3>
+      <p>
+        Some JAR files do not include a <code>Main-Class</code> entry in
+        <code>META-INF/MANIFEST.MF</code>. In this case, you can use
+        Jar File Opener to inspect the manifest file.
+      </p>
+
+      <h3>Swing app does not display correctly</h3>
+      <p>
+        Some Java desktop apps may require additional libraries or desktop-specific features.
+        Try using zoom, move, virtual mouse, or keyboard controls.
+      </p>
+
+      <h3>Java version mismatch</h3>
+      <p>
+        Some JAR files require a specific Java version. Check whether the JAR requires
+        Java 8, Java 17, Java 21, or Java 25.
+      </p>
+    </section>
+
+    <section id="download" class="download-card">
+      <h2>Download</h2>
+      <p>Download Jre4Android from Google Play.</p>
+      <a class="download-button" href="https://play.google.com/store/apps/details?id=com.coobbi.jre">
+        Download on Google Play
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Coobbi. Jre4Android is an independent Android Java runtime tool.</p>
+  </footer>
+</body>
 </html>
